@@ -124,3 +124,33 @@ main {
 .footer .copyright {
   text-align: center;
 }
+
+.error-container {
+  text-align: center;
+  margin-top: 5rem;
+  min-height: 45vh;
+}
+
+.error-status {
+  font-size: 5rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.error-text {
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--black);
+}
+
+.error-container a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: bold;
+  transition: all 0.3s ease-out;
+}
+
+.error-container a:hover {
+  color: var(--black);
+}

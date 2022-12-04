@@ -4,3 +4,13 @@ export const getGuitars = async () => {
 
   return data;
 };
+
+export const getGuitar = async (url) => {
+  const response = await fetch(
+    `${process.env.API_URL}/guitars?filters[url]=${url}&populate=image`
+  );
+
+  const { data } = await response.json();
+
+  return data;
+};
