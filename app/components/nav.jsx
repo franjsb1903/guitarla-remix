@@ -14,8 +14,8 @@ const Nav = () => {
         Nosotros
       </Link>
       <Link
-        to="/tienda"
-        className={location.pathname === "/tienda" ? "active" : ""}
+        to="/guitars"
+        className={location.pathname === "/guitars" ? "active" : ""}
       >
         Tienda
       </Link>

@@ -1,16 +1,6 @@
 import { useLoaderData } from "@remix-run/react";
 import { getPost } from "~/models/posts.server";
 import { formatDate } from "~/utils/helpers";
-import styles from "~/styles/blog.css";
-
-export function links() {
-  return [
-    {
-      rel: "stylesheet",
-      href: styles,
-    },
-  ];
-}
 
 export async function loader({ params }) {
   const { postUrl } = params;
@@ -31,7 +21,7 @@ export const meta = ({ data }) => {
   if (!data) {
     return {
       title: "GuitarLA - Post no encontrado",
-      description: `Guitarras, venta de guitarras, post no encontrado`,
+      description: "Guitarras, venta de guitarras, post no encontrado",
     };
   }
 
@@ -47,7 +37,7 @@ const Post = () => {
   const { title, content, publishedAt, image } = post?.attributes;
 
   return (
-    <article className="contenedor post mt-3">
+    <article className="post mt-3">
       <img
         className="imagen"
         src={image.data.attributes.url}
