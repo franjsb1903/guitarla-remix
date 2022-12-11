@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Meta,
   Links,
@@ -46,9 +47,32 @@ export const links = () => {
 };
 
 export default function App() {
+  const [shoppingCart, setShoppingCart] = useState([]);
+
+  const addItem = (item) => {
+    const guitarExists = shoppingCart.find((guitar) => guitar.id === item.id);
+    if (guitarExists) {
+      const newShoppingCart = shoppingCart.map((guitar) => {
+        if (guitar.id === item.id) {
+          guitar.amount += item.amount;
+        }
+        return guitar;
+      });
+      setShoppingCart(newShoppingCart);
+      return;
+    }
+
+    setShoppingCart([...shoppingCart, item]);
+  };
+
   return (
     <Document>
-      <Outlet />
+      <Outlet
+        context={{
+          addItem,
+          shoppingCart,
+        }}
+      />
     </Document>
   );
 }
