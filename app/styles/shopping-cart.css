@@ -1,3 +1,13 @@
+.contenedor .carrito {
+  min-height: 30vh;
+}
+
+.contenedor .fallback {
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+}
+
 .contenido {
   display: grid;
   gap: 5rem;
@@ -21,10 +31,21 @@
   align-items: center;
   padding: 3rem 0;
   border-bottom: 1px solid #cfcfcf;
+  position: relative;
 }
 
 .producto:last-of-type {
   border-bottom: none;
+}
+
+.select {
+  all: unset;
+  border: 1px solid #cfcfcf;
+  text-align: center;
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 1rem;
 }
 
 .producto p {
@@ -41,9 +62,10 @@
   font-size: 4.2rem;
 }
 
-.precio {
+.producto .precio {
   font-weight: 700;
   color: var(--primary);
+  margin-top: 2rem;
 }
 
 .subtotal {
@@ -56,4 +78,15 @@
   border-radius: 3rem;
   position: sticky;
   top: 3rem;
+}
+
+.btn-eliminar {
+  all: unset;
+  position: absolute;
+  top: 3rem;
+  right: 1rem;
+}
+
+.btn-eliminar:hover {
+  cursor: pointer;
 }

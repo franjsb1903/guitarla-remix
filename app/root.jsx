@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Meta,
   Links,
@@ -47,7 +47,15 @@ export const links = () => {
 };
 
 export default function App() {
-  const [shoppingCart, setShoppingCart] = useState([]);
+  const shoppingCartLS =
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("shopping-cart")) ?? []
+      : [];
+  const [shoppingCart, setShoppingCart] = useState(shoppingCartLS);
+
+  useEffect(() => {
+    localStorage.setItem("shopping-cart", JSON.stringify(shoppingCart));
+  }, [shoppingCart]);
 
   const addItem = (item) => {
     const guitarExists = shoppingCart.find((guitar) => guitar.id === item.id);
@@ -65,12 +73,28 @@ export default function App() {
     setShoppingCart([...shoppingCart, item]);
   };
 
+  const updateAmount = (item) => {
+    const newShoppingCart = shoppingCart.map((guitar) => {
+      if (guitar.id === item.id) {
+        guitar.amount = item.amount;
+      }
+      return guitar;
+    });
+    setShoppingCart(newShoppingCart);
+  };
+
+  const deleteGuitar = (id) => {
+    setShoppingCart(shoppingCart.filter((guitar) => guitar.id !== id));
+  };
+
   return (
     <Document>
       <Outlet
         context={{
           addItem,
           shoppingCart,
+          updateAmount,
+          deleteGuitar,
         }}
       />
     </Document>
