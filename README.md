@@ -1,53 +1,43 @@
-# Welcome to Remix!
+# GuitarLA - Remix
 
-- [Remix Docs](https://remix.run/docs)
+Aplicación de venta de guitarras, con blog propio. Este proyecto se alimenta de una API empleando Strapi y almacenando la información en una base de datos PostgreSQL.
 
-## Development
+Está realizado empleando Remix Run, un framework para la aplicación del SSR con React.
 
-From your terminal:
+## Tecnologías
 
-```sh
-npm run dev
+### Frontend
+
+La aplicación ha sido creada con las siguientes tecnologías:
+
+- **ReactJS**
+- **CSS**
+- **ViteJS**
+- **TypeScript**
+- **Remix Run**
+
+### Backend
+
+- **Strapi**
+
+## Almacenamiento de datos
+
+El almacenamiento de datos se lleva a cabo en una base de datos PostgreSQL desplegada en render.com, con la cual se comunica la API de Strapi.
+
+## Despliegue local
+
+Para un despliegue local de la aplicación, simplemente clona el repositorio y en primer lugar instala los paquetes:
+
+```bash
+npm install
 ```
 
-This starts your app in development mode, rebuilding assets on file changes.
+Seguidamente, levanta la aplicación con:
 
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
+```bash
+npm run start
 ```
 
-Then run the app in production mode:
+Podrás acceder a la aplicación en tu navegador accediento a [http://localhost:3000](http://localhost:3000).
 
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
-
-### Using a Template
-
-When you ran `npx create-remix@latest` there were a few choices for hosting. You can run that again to create a new project, then copy over your `app/` folder to the new project that's pre-configured for your target server.
-
-```sh
-cd ..
-# create a new project, and pick a pre-configured host
-npx create-remix@latest
-cd my-new-remix-app
-# remove the new project's app (not the old one!)
-rm -rf app
-# copy your app over
-cp -R ../my-old-remix-app/app app
-```
+Recuerda que esta aplicación **requiere de una comunicación con una API**, construida en este caso con Strapi. Si estás interesado realmente en emplearlo localmente, tendrás que contar con una API. Puedes ponerte en contacto conmigo si quieres una mano.
