@@ -13,7 +13,7 @@ La aplicación ha sido creada con las siguientes tecnologías:
 - **ReactJS**
 - **CSS**
 - **ViteJS**
-- **TypeScript**
+- **JavaScript**
 - **Remix Run**
 
 ### Backend
